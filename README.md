@@ -1,18 +1,21 @@
-# IPS Form Generator
+# IPS Generator
 
 Project ini adalah aplikasi HTML client-side untuk membuat file IPS baru berdasarkan template Excel.
 
-Pengguna cukup membuka halaman [ips.html](ips.html), mengisi form utama, lalu mengunduh hasil Excel yang sudah terisi tanpa perlu membuka atau mengedit template secara manual.
+Pengguna cukup membuka halaman [ips.html](ips.html), mengisi field utama, lalu mengunduh hasil Excel yang sudah terisi tanpa perlu membuka atau mengedit template secara manual.
 
 ## Fitur Utama
 
 - 100% client-side, tanpa backend
 - Dapat berjalan offline
 - Template workbook default sudah di-embed ke dalam HTML
+- Branding visual sudah terpasang langsung di HTML, termasuk logo header dan favicon tab browser berbentuk `IPS`
 - Mengisi field form langsung ke cell Excel target
 - Validasi visual untuk field wajib
 - Tombol `Unduh hasil` hanya aktif jika field wajib valid
 - Mendukung trigger checkbox `Quality`, `Delivery`, `Cost`, `Other`
+- Menghasilkan Document ID unik otomatis ke cell `W6`
+- Sequence Document ID disimpan di `localStorage` agar tetap berlanjut setelah browser di-refresh
 - Nama file hasil unduhan dibuat otomatis dari nilai form
 
 ## File Project
@@ -37,6 +40,12 @@ Tidak perlu install dependency.
 4. Pilih trigger jika diperlukan.
 5. Klik `Unduh hasil`.
 
+Setelah unduhan berhasil:
+
+- workbook hasil akan terunduh otomatis
+- field input form akan dikosongkan kembali
+- sequence Document ID terakhir tetap tersimpan di browser
+
 ## Mapping Form ke Excel
 
 Field utama yang diisi ke sheet `IPS V4.1`:
@@ -47,6 +56,7 @@ Field utama yang diisi ke sheet `IPS V4.1`:
 | Tanggal | `P8` | Format `yyyy-mm-dd` |
 | Line | `P6` | Dipilih dari dropdown |
 | Technology | `Q14` | Dipilih dari dropdown |
+| Document ID | `W6` | Dibuat otomatis saat download |
 
 Trigger checkbox:
 
@@ -82,6 +92,28 @@ Contoh:
 2026_01_15_IPS_SPM_LU21_PM100_BEARING NOISE.xlsx
 ```
 
+## Document ID
+
+Saat tombol `Unduh hasil` diklik, aplikasi juga mengisi cell `W6` dengan Document ID unik.
+
+Pola saat ini:
+
+```text
+IPS-{linePrefix}-{technologyCode}-{YYYYMMDD}-{NNN}
+```
+
+Contoh:
+
+```text
+IPS-LU21-PM100-20260402-001
+```
+
+Catatan:
+
+- `linePrefix` diambil dari bagian awal nilai `Line` sebelum tanda `-`
+- `technologyCode` diambil dari pilihan `Technology`
+- `NNN` adalah sequence yang disimpan di `localStorage` per tanggal
+
 ## Arsitektur Singkat
 
 Konfigurasi utama disimpan di dalam [ips.html](ips.html):
@@ -95,6 +127,9 @@ Konfigurasi utama disimpan di dalam [ips.html](ips.html):
 - `UI_TEXT`
   Menyimpan status text dan string UI utama.
 
+- `DOCUMENT_SEQUENCE_STORAGE_PREFIX`
+  Menentukan prefix key `localStorage` untuk sequence Document ID.
+
 Workbook diproses langsung di browser dengan membaca dan mengubah XML di dalam file `.xlsx`.
 
 ## Catatan Teknis
@@ -103,6 +138,7 @@ Workbook diproses langsung di browser dengan membaca dan mengubah XML di dalam f
 - Value type target dikunci ke `text`
 - Workbook default di-load otomatis saat halaman dibuka
 - Setelah download berhasil, field form dibersihkan kembali
+- Logo header dan favicon tab browser di-embed langsung sebagai SVG inline
 - Project ini tidak memerlukan koneksi internet untuk penggunaan normal
 
 ## Maintenance
