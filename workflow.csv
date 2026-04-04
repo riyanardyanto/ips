@@ -1,0 +1,12 @@
+Steps;How;Why
+a) Buka halaman IPS Generator;Akses halaman HTML melalui browser perusahaan dan pilih menu “IPS Generator”.;Memulai proses pembuatan dokumen IPS berbasis template otomatis.
+b) Isi field Tanggal;Ketik tanggal kejadian masalah sesuai format yang disediakan.;Tanggal menjadi referensi utama dalam penelusuran dan pelacakan IPS.
+c) Pilih Line;Pilih line/unit/mesin pada dropdown yang tersedia.;Agar sistem menghasilkan template IPS sesuai lokasi kejadian.
+d) Pilih Technology;Klik dropdown Technology dan pilih teknologi yang relevan.;Teknologi menentukan jenis template IPS yang akan diisi otomatis.
+e) Pilih Trigger;Centang opsi (Quality, Delivery, Cost, atau Other).;Menentukan kategori pemicu masalah untuk klasifikasi IPS.
+f) Isi Problem Description;Tulis judul atau deskripsi singkat masalah, misalnya “QUANTITY CHECK, INFEED”.;Menjadi initial problem statement otomatis pada file IPS.
+g) Klik tombol Unduh Hasil;Setelah form lengkap, tekan tombol untuk meng-generate file IPS Excel.;Sistem akan membuat template IPS yang telah terisi otomatis sehingga menghindari pengeditan manual.
+h) Simpan file hasil download;Ketika browser menampilkan popup download, pilih “Save As” lalu tentukan folder penyimpanan.;Untuk menyimpan dokumen IPS dengan nama format otomatis (menghindari kesalahan penamaan).
+i) Buka file IPS Excel;Buka file XLSX yang telah disimpan, lalu periksa kolom-kolom yang sudah terisi otomatis.;Memverifikasi bahwa input HTML telah ditransfer dengan benar ke template Excel.
+j) Lanjutkan pengisian bagian investigasi (jika diperlukan);Lengkapi kolom Evidence, Why analysis, dan informasi tambahan sesuai prosedur IPS.;Melengkapi proses IPS hingga siap diverifikasi dan digunakan untuk investigasi masalah.
+k) Simpan dan distribusikan sesuai alur kerja;Setelah lengkap, simpan file dan kirimkan ke pihak terkait sesuai flow internal.;Menjadikan dokumen IPS sebagai dasar penanganan masalah dan tindak lanjut.

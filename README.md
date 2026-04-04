@@ -46,6 +46,50 @@ Setelah unduhan berhasil:
 - field input form akan dikosongkan kembali
 - sequence Document ID terakhir tetap tersimpan di browser
 
+## Alur Penggunaan Visual
+
+Berikut alur penggunaan project ini dalam proses pembuatan dan pengisian form IPS Excel.
+
+```mermaid
+flowchart TD
+   A[Buka halaman IPS Generator] --> B[Isi Tanggal]
+   B --> C[Pilih Line]
+   C --> D[Pilih Technology]
+   D --> E[Pilih Trigger]
+   E --> F[Isi Problem Description]
+   F --> G[Klik Unduh Hasil]
+   G --> H[Simpan file hasil download]
+   H --> I[Buka file IPS Excel]
+   I --> J[Lanjutkan investigasi jika diperlukan]
+   J --> K[Simpan dan distribusikan sesuai flow internal]
+```
+
+### Ringkasan Tahap
+
+1. Persiapan
+
+  Pengguna membuka halaman IPS Generator di browser, lalu memastikan form siap diisi.
+
+2. Pengisian Form Utama
+
+  Pengguna mengisi `Tanggal`, memilih `Line`, memilih `Technology`, mencentang `Trigger` yang relevan, lalu mengisi `Problem Description`.
+
+3. Generate Dokumen
+
+  Setelah field lengkap, pengguna menekan tombol `Unduh hasil`. Sistem akan membuat file Excel IPS dengan nama otomatis dan Document ID otomatis.
+
+4. Verifikasi Hasil
+
+  Pengguna menyimpan file hasil download, membuka file Excel, lalu memeriksa bahwa field yang terisi otomatis sudah sesuai.
+
+5. Lanjutan Investigasi
+
+  Jika diperlukan, pengguna melanjutkan pengisian bagian investigasi seperti evidence, why analysis, dan informasi tambahan sesuai prosedur IPS internal.
+
+6. Finalisasi
+
+  Setelah lengkap, file disimpan kembali dan didistribusikan ke pihak terkait sesuai alur kerja internal.
+
 ## Mapping Form ke Excel
 
 Field utama yang diisi ke sheet `IPS V4.1`:
